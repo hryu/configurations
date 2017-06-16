@@ -1,0 +1,78 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(c-default-style
+   (quote
+    ((c-mode . "linux")
+     (c++-mode . "stroustrup")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "linux"))))
+ '(c-tab-always-indent nil)
+ '(compilation-scroll-output t)
+ '(compile-command "ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_PATH=installed make all -j4 O=arm64-objs")
+ '(cscope-do-not-update-database t)
+ '(current-language-environment "UTF-8")
+ '(git-append-signed-off-by t)
+ '(global-auto-revert-mode t)
+ '(grep-command
+   "grep -rnH --exclude=cscope* --exclude=*.o --exclude=*.so --exclude=*.ko --exclude-dir=CVS --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.repo --exclude-dir=./out . -e ")
+ '(grep-scroll-output t)
+ '(gud-gdb-command-name "gdb-multiarch -i=mi")
+ '(make-backup-files nil)
+ '(scroll-step 1)
+ '(show-paren-mode t)
+ '(show-trailing-whitespace t)
+ '(transient-mark-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; cscope
+(require 'xcscope)
+(add-hook 'asm-mode-hook (function cscope-minor-mode))
+(add-hook 'java-mode-hook (function cscope-minor-mode))
+
+;; git
+(require 'git)
+(require 'git-blame)
+
+;; read-only
+(add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
+
+;; kernel mode
+(defun kernel-mode ()
+  (interactive)
+  (setq c-default-style "linux")
+  (setq tab-width 8)
+  (setq c-basic-offset 8)
+  (setq indent-tabs-mode t))
+
+;; userland mode
+(defun usr-mode ()
+  (interactive)
+  (c-mode)
+  (setq c-default-style "linux")
+  (setq tab-width 4)
+  (setq c-basic-offset 4)
+  (setq indent-tabs-mode nil))
+
+(defun cpp-mode ()
+  (interactive)
+  (c++-mode)
+  (setq c-default-style "stroustrup")
+  (setq tab-width 4)
+  (setq c-basic-offset 4)
+  (setq indent-tabs-mode nil))
+
+(defun md-mode ()
+  (interactive)
+  (text-mode)
+  (setq tab-width 4)
+  (setq indent-tabs-mode nil)
+  (setq indent-line-function 'insert-tab))
