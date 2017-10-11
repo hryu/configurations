@@ -18,7 +18,7 @@
  '(git-append-signed-off-by t)
  '(global-auto-revert-mode t)
  '(grep-command
-   "grep -rnH --exclude=cscope* --exclude=*.o --exclude=*.so --exclude=*.ko --exclude-dir=CVS --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.repo --exclude-dir=./out . -e ")
+   "grep -i -n -H -R --exclude=*.o --exclude=*.so --exclude=*.a --exclude=*.ko --exclude-dir=CVS --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.svn --include=* -w ")
  '(grep-scroll-output t)
  '(gud-gdb-command-name "gdb-multiarch -i=mi")
  '(make-backup-files nil)
