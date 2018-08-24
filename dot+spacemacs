@@ -52,7 +52,8 @@ values."
      syntax-checking
      version-control
      cscope
-     c-c++
+     (c-c++ :variables
+	    c-c++-enable-clang-support t)
      ipython-notebook
      java
      markdown
