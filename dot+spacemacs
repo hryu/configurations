@@ -320,6 +320,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; powerline
+  (setq powerline-default-separator nil)
+
   ;; read-only
   (add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
 
