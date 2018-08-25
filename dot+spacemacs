@@ -325,6 +325,11 @@ you should place your code here."
   ;; read-only
   (add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
 
+  ;; 80 column
+  (require 'whitespace)
+  (setq whitespace-style '(face empty tabs lines-tail trailing))
+  (global-whitespace-mode t)
+
   ;; c-default-style
   (setq-default
    c-default-style "linux"
