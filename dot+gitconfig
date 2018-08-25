@@ -1,14 +1,7 @@
 [user]
-	name = Hoeun Ryu
 	email = hoeun.ryu@gmail.com
+	name = Hoeun Ryu
+[color]
+	ui = auto
 [core]
-	editor = emacs
-
-[sendemail]
-	from = Hoeun Ryu <hoeun.ryu@gmail.com>
-	smtpserver = smtp.gmail.com
-	smtpuser = hoeun.ryu@gmail.com
-	smtppass = xqiqyndoaegspxvx
-	smtpencryption = tls
-	chainreplyto = false
-	smtpserverport = 587
+	editor = emacsclient -nc -a ""
