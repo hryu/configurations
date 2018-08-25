@@ -378,6 +378,11 @@ you should place your code here."
     (setq indent-tabs-mode nil)
     (setq indent-line-function 'insert-tab))
 
+  (defun kill-all-buffers ()
+    "Kill all buffers."
+    (interactive)
+    (mapc 'kill-buffer (buffer-list)))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
