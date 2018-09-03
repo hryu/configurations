@@ -339,62 +339,13 @@ you should place your code here."
 
   ;; cscope
   (setq cscope-display-cscope-buffer t)
+  (setq cscope-program "gtags-cscope")
   (add-hook 'asm-mode-hook (function cscope-minor-mode))
   (add-hook 'c-mode-hook (function cscope-minor-mode))
   (add-hook 'c++-mode-hook (function cscope-minor-mode))
   (add-hook 'python-mode-hook (function cscope-minor-mode))
   (add-hook 'java-mode-hook (function cscope-minor-mode))
   (add-hook 'dired-mode-hook (function cscope-minor-mode))
-
-  ;; projectile
-  (setq projectile-globally-ignored-suffixes
-	(append projectile-globally-ignored-file-suffixes '("*.a"
-							    "*.bin"
-							    "*.bz2"
-							    "*.dtb"
-							    "*.dwo"
-							    "*.elf"
-							    "*.gcno"
-							    "*.gz"
-							    "*.i"
-							    "*.ko"
-							    "*.ll"
-							    "*.lst"
-							    "*.lz4"
-							    "*.lzma"
-							    "*.lzo"
-							    "*.o"
-							    "*.order"
-							    "*.patch"
-							    "*.s"
-							    "*.so"
-							    "*.su"
-							    "*.symtypes"
-							    "*.tar"
-							    "*.xz")))
-  (setq projectile-globally-ignored-files
-	(append projectile-globally-ignored-files '("cscope.out"
-						    "cscope.out.in"
-						    "cscope.out.po"
-						    "cscope.files"
-						    ".clang_complete"
-						    "GPATH"
-						    "GRTAGS"
-						    "GTAGS"
-						    "Module.symvers"
-						    "modules.builtin"
-						    "tags"
-						    "TAGS"
-						    "linux"
-						    "vmlinux"
-						    "vmlinux.32"
-						    "vmlinux-gdb.py"
-						    "vmlinuz"
-						    "System.map"
-						    "Module.markers")))
-  (setq projectile-globally-ignored-directories
-	(append projectile-globally-ignored-directories '(".git"
-							  ".svn")))
 
   ;; kernel mode
   (defun kernel-mode ()
